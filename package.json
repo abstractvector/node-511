@@ -1,10 +1,9 @@
 {
   "name": "node-511",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Lightweight node.js wrapper for the 511.org real time driving times and transit departure APIs",
   "main": "lib/client.js",
   "scripts": {
-    "start": "coffee index.coffee",
     "prepublish": "coffee -co ./lib ./src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,8 +23,10 @@
     "url": "https://github.com/abstractvector/node-511/issues"
   },
   "homepage": "https://github.com/abstractvector/node-511",
+  "devDependencies": {
+    "coffee-script": "^1.7.1"
+  },
   "dependencies": {
-    "coffee-script": "^1.7.1",
     "request": "^2.36.0",
     "xml2js": "^0.4.4"
   }
