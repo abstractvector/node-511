@@ -35,3 +35,17 @@ For example:
     var client = new Client({token: '11111111-2222-3333-4444-5555555555555555'});
 
 This client is the object upon which to invoke the API methods.
+
+#To Do / Roadmap
+
+The following items are currently planned for implementation within this module:
+
+* Add remaining API methods
+* Add timeout handling
+* Improve error handling
+* Add debug mode
+* Document usage more thoroughly in README
+* Add a monitoring capability (whereby the module pings out updates at a regular interval)
+* Add server capability (to allow others to query this module RESTfully)
+* Add caching (related to the server above)
+* Add tests
