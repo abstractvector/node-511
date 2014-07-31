@@ -1,6 +1,6 @@
 {
   "name": "node-511",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Lightweight node.js wrapper for the 511.org real time driving times and transit departure APIs",
   "main": "lib/client.js",
   "scripts": {

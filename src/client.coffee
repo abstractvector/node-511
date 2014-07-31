@@ -15,6 +15,7 @@ class Client
       GetRoutesForAgency: '/Transit2.0/GetRoutesForAgency.aspx'
       GetStopsForRoute: '/Transit2.0/GetStopsForRoute.aspx'
       GetStopsForRoutes: '/Transit2.0/GetStopsForRoutes.aspx'
+      GetNextDeparturesByStopName: '/Transit2.0/GetNextDeparturesByStopName.aspx'
 
     @services = []
 
