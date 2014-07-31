@@ -1,26 +1,37 @@
 AbstractService = require './AbstractService'
 
-class GetStopsForRoute extends AbstractService
+class GetStopsForRoutes extends AbstractService
 
   invoke: (parameters = {}, callback = () ->) =>
     if !parameters.route && !parameters.routeIDF
       return callback new Error "Call to service #{ @constructor.name } must include parameter route or routeIDF"
 
+    if parameters.routeIDF && Array.isArray parameters.routeIDF
+      parameters.routeIDF = parameters.routeIDF.join '|'
+
+
+    if !Array.isArray parameters.route
+      return callback new Error "Call to service #{ @constructor.name } included parameter route as type #{ typeof parameters.route } when it should be an array"
+
     if parameters.route
-      params = []
+      routeIDFs = []
 
-      if parameters.route.agencyName
-        params.push parameters.route.agencyName
+      for r in parameters.route
+        routeIDF = []
+        if r.agencyName
+          routeIDF.push r.agencyName
 
-      if parameters.route.routeCode
-        params.push parameters.route.routeCode
+        if r.routeCode
+          routeIDF.push r.routeCode
 
-      if parameters.route.routeDirectionCode
-        params.push parameters.route.routeDirectionCode
+        if r.routeDirectionCode
+          routeIDF.push r.routeDirectionCode
 
-      parameters.routeIDF = params.join '~'
+        routeIDFs.push routeIDF.join '~'
+
+      parameters.routeIDF = routeIDFs.join '|'
       delete parameters.route
-
+    
     super parameters, callback
 
   _parse: (obj) ->
@@ -50,4 +61,4 @@ class GetStopsForRoute extends AbstractService
 
     agency
 
-module.exports = GetStopsForRoute
+module.exports = GetStopsForRoutes

@@ -49,3 +49,7 @@ The following items are currently planned for implementation within this module:
 * Add server capability (to allow others to query this module RESTfully)
 * Add caching (related to the server above)
 * Add tests
+
+#Known Issues
+
+* Does not work with Route Direction Code yet - just needs the XML parsing fixing
